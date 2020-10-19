@@ -1,0 +1,23 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <Description>Elm inspired URL builder.</Description>
+    <PackageProjectUrl>https://github.com/ttak0422/Elf</PackageProjectUrl>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <RepositoryUrl>https://github.com/ttak0422/Elf</RepositoryUrl>
+    <PackageTags>fable;elm;elmish;elf;fsharp;</PackageTags>
+    <Authors>ttak0422</Authors>
+    <Version>0.0.1</Version>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <TargetFramework>netstandard2.1</TargetFramework>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="Helper.fs" />
+    <Compile Include="Porter.fs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="*.fsproj; **\*.fs; **\*.js" PackagePath="fable" />
+  </ItemGroup>
+  <Import Project="..\..\.paket\Paket.Restore.targets" />
+</Project>

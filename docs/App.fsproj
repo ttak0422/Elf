@@ -1,0 +1,18 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>netstandard2.1</TargetFramework>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\src\Elf.Porter\Elf.Porter.fsproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Markdown.fs" />
+    <Compile Include="Porter/Overview.fs" />
+    <Compile Include="Porter/Sending.fs" />
+    <Compile Include="Porter/Receiving.fs" />
+    <Compile Include="Porter/Sample.fs" />
+    <Compile Include="Router.fs" />
+    <Compile Include="App.fs" />
+  </ItemGroup>
+  <Import Project="..\.paket\Paket.Restore.targets" />
+</Project>
