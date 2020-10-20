@@ -1,4 +1,4 @@
-import { getText } from "./Overview.fs";
+import { getText } from "./Sample.fs";
 export { inputText }
 
 function inputText() {
