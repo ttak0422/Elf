@@ -41,14 +41,7 @@ const commonPlugins = [
 ];
 
 module.exports = {
-    //resolve.
-    // resolve: {
-        //     fallback: { 
-            //         path: Path,
-            //     }
-            //     //fallback: { "path": false }
-            // },
-            entry: isProduction
+        entry: isProduction
             ? {
                 app: [
                     resolve(Config.fsEntry),
@@ -86,7 +79,6 @@ module.exports = {
             chunkIds: "named"
         },
         resolve: {
-            // symlinks: false,
             fallback: { "path": require.resolve("path-browserify") },
         },
         devServer: {
