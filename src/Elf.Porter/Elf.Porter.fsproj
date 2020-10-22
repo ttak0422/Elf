@@ -6,12 +6,12 @@
     <RepositoryUrl>https://github.com/ttak0422/Elf</RepositoryUrl>
     <PackageTags>fable;elm;elmish;elf;fsharp;</PackageTags>
     <Authors>ttak0422</Authors>
-    <Version>0.0.3</Version>
+    <Version>0.0.4</Version>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
     <PackageReadmeFile>README.md</PackageReadmeFile>
   </PropertyGroup>
   <PropertyGroup>
-    <TargetFramework>netstandard2.1</TargetFramework>
+    <TargetFramework>netstandard2.0</TargetFramework>
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Helper.fs" />
