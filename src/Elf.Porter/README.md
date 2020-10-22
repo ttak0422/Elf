@@ -1,41 +1,80 @@
-# Elf.Porter [![NuGet version](https://badge.fury.io/nu/Elf.Porter.svg)](https://badge.fury.io/nu/Elf.Porter)
-
+<div align="center">
+<h1> Elf.Porter</h1>
+<p>
 A library inspired by Elm ports.
-
 This is to simplify the interaction between JavaScript and F#.
+</p>
+<a href="https://www.nuget.org/packages/Elf.Porter">
+<img src="https://img.shields.io/nuget/v/Elf.Porter?style=for-the-badge">
+</a>
+</div>
+
+## Type Table
+
+|F#|JavaScript|
+|:-:|:-:|
+| Numeric ( int, float, ... ) | number |
+| string | string |
+| bool | boolean |
+| DateTime | Date |
+| 'a option ( int option, ... ) | T \| null ( number \| null, ... ) |
+| array | array |
+| Record | Object |
+
+## Usage
 
 ```fsharp
-(* F# Code *)
+(* F# Code [/sample/Elf.Porter.Sample/App.fs] *)
 
-// ...
+module Elf.Porter.Sample
+
+open Elmish
+open Elmish.React
+open Fable.React
+open Fable.React.Props
+open Elf.Porter
+
+type Model = { Input: string }
 
 type Msg 
-    = GetText of string
+    = GetText of string 
     | ShowPrompt
 
-[<Porter("/main.js")>]
+[<Porter("./app.js")>]
 let inputText: unit -> unit = jsPorter
 
 let getText, getTextSub = Porter.create GetText
 
-let update (msg: Msg) (state: State) =
-    match msg with
-    | ShowPrompt -> state, Cmd.port inputText ()
-    | GetText text -> { state with Input = text }, Cmd.none
+let init (): Model * Cmd<Msg> =
+    { Input = "" }, Cmd.none 
 
-let subscribe (state: State) = 
-    getTextSub
-    |> Cmd.ofSub
+let update (msg: Msg) (model: Model): Model * Cmd<Msg> = 
+    match msg with 
+    | GetText text -> { model with Input = text }, Cmd.none
+    | ShowPrompt -> model, Cmd.port inputText ()
 
-/// ...
+let subscription (model: Model): Cmd<Msg> =
+    Cmd.ofSub getTextSub
+
+let view (model: Model) (dispatch: Dispatch<Msg>): ReactElement = 
+    div [] 
+        [ button 
+            [ OnClick(fun _ -> dispatch ShowPrompt) ] 
+            [ str "Show Prompt" ]
+        ; str model.Input
+        ]
+
+Program.mkProgram init update view 
+|> Program.withSubscription subscription
+|> Program.withReactBatched "app"
+|> Program.run
 ```
 
 ```javascript
-/* JavaScript Code */
-import { getText } from "./Sample.fs";
-export { inputText }
+/* JavaScript Code [/sample/Elf.Porter.Sample/app.js] */
+import { getText } from "./App.fs";
 
-function inputText() {
+export function inputText() {
     const text = prompt("input: ");
     getText(text);
 }

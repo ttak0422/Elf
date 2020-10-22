@@ -6,8 +6,9 @@
     <RepositoryUrl>https://github.com/ttak0422/Elf</RepositoryUrl>
     <PackageTags>fable;elm;elmish;elf;fsharp;</PackageTags>
     <Authors>ttak0422</Authors>
-    <Version>0.0.2</Version>
+    <Version>0.0.3</Version>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
   </PropertyGroup>
   <PropertyGroup>
     <TargetFramework>netstandard2.1</TargetFramework>
@@ -18,6 +19,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="*.fsproj; **\*.fs; **\*.js" PackagePath="fable" />
+    <None Include=".\README.md" Pack="true" PackagePath=""/>
   </ItemGroup>
   <Import Project="..\..\.paket\Paket.Restore.targets" />
 </Project>

@@ -1,0 +1,16 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Include="App.fs" />
+  </ItemGroup>
+
+    <ItemGroup>
+      <PackageReference Include="Fable.Elmish.React" Version="3.0.1" />
+      <PackageReference Include="Elf.Porter" Version="0.0.2" />
+    </ItemGroup>
+
+</Project>
