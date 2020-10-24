@@ -11,15 +11,40 @@ This is to simplify the interaction between JavaScript and F#.
 
 ## Type Table
 
-|F#|JavaScript|
-|:-:|:-:|
-| Numeric ( int, float, ... ) | number |
-| string | string |
-| bool | boolean |
-| DateTime | Date |
-| 'a option ( int option, ... ) | T \| null ( number \| null, ... ) |
-| array | array |
-| Record | Object |
+<table>
+    <tr>
+        <th align="center">F#</th>
+        <th align="center">JavaScript</th>
+    </tr>
+    <tr>
+        <td align="center">Number ( int, float, ... )</td>
+        <td align="center">number</td>
+    </tr>
+    <tr>
+        <td align="center">string</td>
+        <td align="center">string</td>
+    </tr>
+    <tr>
+        <td align="center">bool</td>
+        <td align="center">boolean</td>
+    </tr>
+    <tr>
+        <td align="center">DateTime</td>
+        <td align="center">Date</td>
+    </tr>
+    <tr>
+        <td align="center">a' option ( int option, ... )</td>
+        <td align="center">T | null ( number | null, ... )</td>
+    </tr>
+    <tr>
+        <td align="center">array</td>
+        <td align="center">Array</td>
+    </tr>
+    <tr>
+        <td align="center">Record</td>
+        <td align="center">Object</td>
+    </tr>
+</table>
 
 ## Usage
 
