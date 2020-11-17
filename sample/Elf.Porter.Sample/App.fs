@@ -15,7 +15,7 @@ type Msg
 [<Porter("./app.js")>]
 let inputText: unit -> unit = jsPorter
 
-let getText, getTextSub = Porter.create GetText
+let (getText: string -> unit), (getTextSub: Sub<Msg>) = Porter.create GetText
 
 let init (): Model * Cmd<Msg> =
     { Input = "" }, Cmd.none 
